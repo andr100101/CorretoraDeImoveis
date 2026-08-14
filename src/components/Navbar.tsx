@@ -95,7 +95,7 @@ export default function Navbar() {
         >
           <div className="sticky top-0 flex min-h-[68px] items-center justify-between border-b border-slate-300 bg-white px-4 py-2 lg:hidden">
             <a
-              href="/"
+              href={`${import.meta.env.BASE_URL}/`}
               className="inline-block rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               <span className="sr-only">Marli Petterhans</span>
@@ -132,7 +132,7 @@ export default function Navbar() {
           <ul className="flex flex-col gap-8 p-6 text-sm font-semibold text-slate-900 lg:flex-row lg:p-0">
             <li>
               <a
-                href="/"
+                href={`${import.meta.env.BASE_URL}/`}
                 onClick={closeMenu}
                 className="rounded hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 aria-current="page"
@@ -143,7 +143,7 @@ export default function Navbar() {
 
             <li>
               <a
-                href="/catalogo"
+                href={`${import.meta.env.BASE_URL}/catalogo`}
                 onClick={closeMenu}
                 className="rounded hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
@@ -153,7 +153,7 @@ export default function Navbar() {
 
             <li>
               <a
-                href="/sobre"
+                href={`${import.meta.env.BASE_URL}/sobre`}
                 onClick={closeMenu}
                 className="rounded hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
