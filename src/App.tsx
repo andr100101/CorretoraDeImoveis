@@ -146,7 +146,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/CorretoraDeImoveis">
       <Routes>
 
         <Route path="/" element={<Home />} />

@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    
-  ],base:"/CorretoraDeImoveis"
+  ],
+  base: '/CorretoraDeImoveis/',
 })
