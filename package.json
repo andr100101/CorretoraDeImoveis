@@ -1,11 +1,11 @@
 {
-  "name": "andrereis",
+  "name": "Marli Peterhans",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/copy-index.js",
     "lint": "oxlint",
     "preview": "vite preview"
   },
