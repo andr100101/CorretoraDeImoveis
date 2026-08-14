@@ -86,7 +86,7 @@ function Home() {
 
           <div className="m-6 justify-center items-center flex flex-col md:flex-row gap-4">
             <a
-              href={`${import.meta.env.BASE_URL}/catalogo`}
+              href={`${import.meta.env.BASE_URL}catalogo`}
               className="bg-terciaria duration-400 transition-colors hover:bg-secundaria p-4 w-1/3 not-md:w-2/3 text-center h-auto text-white font-bold rounded ml-4 cursor-pointer text-large md:text-2xl mt-6 mb-10"
             >
               Ver todos

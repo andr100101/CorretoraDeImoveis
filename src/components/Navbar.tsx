@@ -67,7 +67,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-4">
         <a
-          href="/"
+          href={`${import.meta.env.BASE_URL}`}
           className="inline-block min-w-9 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
         >
           <span className="sr-only">Marli Petterhans</span>
@@ -95,7 +95,7 @@ export default function Navbar() {
         >
           <div className="sticky top-0 flex min-h-[68px] items-center justify-between border-b border-slate-300 bg-white px-4 py-2 lg:hidden">
             <a
-              href={`${import.meta.env.BASE_URL}/`}
+              href={`${import.meta.env.BASE_URL}`}
               className="inline-block rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               <span className="sr-only">Marli Petterhans</span>
@@ -143,7 +143,7 @@ export default function Navbar() {
 
             <li>
               <a
-                href={`${import.meta.env.BASE_URL}/catalogo`}
+                href={`${import.meta.env.BASE_URL}catalogo`}
                 onClick={closeMenu}
                 className="rounded hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
@@ -153,7 +153,7 @@ export default function Navbar() {
 
             <li>
               <a
-                href={`${import.meta.env.BASE_URL}/sobre`}
+                href={`${import.meta.env.BASE_URL}sobre`}
                 onClick={closeMenu}
                 className="rounded hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
