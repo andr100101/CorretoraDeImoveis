@@ -38,7 +38,7 @@ function Home() {
 
     meta.setAttribute('content', description)
 
-    fetch(`${import.meta.env.BASE_URL}imovel.json`)
+    fetch(`imovel.json`)
       .then((response) => response.json())
       .then((data: Imovel[]) => {
         setImoveis(data)
@@ -146,7 +146,7 @@ function Home() {
 
 function App() {
   return (
-    <BrowserRouter basename="/CorretoraDeImoveis">
+    <BrowserRouter>
       <Routes>
 
         <Route path="/" element={<Home />} />
