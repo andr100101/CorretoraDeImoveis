@@ -12,7 +12,7 @@ export default function CardDestaque({ idImovel }: DestaqueProps) {
   const [imovel, setImovel] = useState<Imovel | null>(null);
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}imovel.json`)
+    fetch("imoveis.json")
       .then((response) => response.json())
       .then((data: Imovel[]) => {
         const encontrado = data.find(
