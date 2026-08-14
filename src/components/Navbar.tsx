@@ -1,5 +1,5 @@
-
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Logo from "../assets/logo.png";
 
@@ -66,8 +66,9 @@ export default function Navbar() {
       aria-label="Main navigation"
     >
       <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-4">
-        <a
-          href={`/`}
+
+        <Link
+          to="/"
           className="inline-block min-w-9 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
         >
           <span className="sr-only">Marli Petterhans</span>
@@ -77,7 +78,7 @@ export default function Navbar() {
             alt="Marli Petterhans Imobiliaria"
             className="h-11 md:h-18 w-auto"
           />
-        </a>
+        </Link>
 
         <div
           id="collapseMenu"
@@ -90,12 +91,14 @@ export default function Navbar() {
             outline-none
             max-lg:w-1/2
             lg:static lg:block lg:h-auto lg:w-auto
-            lg:overflow-visible lg:border-0 lg:bg-transparent lg:shadow-none"
+            lg:overflow-visible lg:border-0 lg:bg-transparent lg:shadow-none
           `}
         >
           <div className="sticky top-0 flex min-h-[68px] items-center justify-between border-b border-slate-300 bg-white px-4 py-2 lg:hidden">
-            <a
-              href={"/"}
+
+            <Link
+              to="/"
+              onClick={closeMenu}
               className="inline-block rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               <span className="sr-only">Marli Petterhans</span>
@@ -105,7 +108,7 @@ export default function Navbar() {
                 alt="Marli Petterhans Imobiliaria"
                 className="h-9 w-auto"
               />
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -123,48 +126,48 @@ export default function Navbar() {
                 viewBox="0 0 329.269 329"
               >
                 <path
-                  d="M194.8 164.77 323.013 36.555c8.343-8.34 8.343-21.825 0-30.164-8.34-8.34-21.825-8.34-30.164 0L164.633 134.605 36.422 6.391c-8.344-8.34-21.824-8.34-30.164 0-8.344 8.34-8.344 21.824 0 30.164l128.21 128.215L6.259 292.984c-8.344 8.34-8.344 21.825 0 30.164a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25l128.21-128.214 128.216 128.214a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25 8.343-8.34 8.343-21.824 0-30.164z"
+                  d="M194.8 164.77 323.013 36.555c8.343-8.34 8.343-21.825 0-30.164-8.34-8.34-21.825-8.34-30.164 0L164.633 134.605 36.422 6.391c-8.344-8.34-21.824-8.34-30.164 0-8.344 8.34-8.344 21.824 0 30.164l128.21 128.215L6.259 292.984c-8.344 8.343-8.344 21.825 0 30.164a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25l128.21-128.214 128.216 128.214a21.27 21.27 0 0 0 15.082 6.25c8.343-8.34 8.343-21.824 0-30.164z"
                 />
               </svg>
             </button>
           </div>
 
           <ul className="flex flex-col gap-8 p-6 text-sm font-semibold text-slate-900 lg:flex-row lg:p-0">
+
             <li>
-              <a
-                href={"/"}
+              <Link
+                to="/"
                 onClick={closeMenu}
                 className="rounded hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                aria-current="page"
               >
                 Inicio
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
-                href={"/catalogo"}
+              <Link
+                to="/catalogo"
                 onClick={closeMenu}
                 className="rounded hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 Catálogo
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
-                href={"/sobre"}
+              <Link
+                to="/sobre"
                 onClick={closeMenu}
                 className="rounded hover:text-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               >
                 Sobre nós
-              </a>
+              </Link>
             </li>
+
           </ul>
         </div>
 
         <div className="flex items-center gap-4">
-          
 
           <button
             type="button"
@@ -189,6 +192,7 @@ export default function Navbar() {
               />
             </svg>
           </button>
+
         </div>
       </div>
     </nav>

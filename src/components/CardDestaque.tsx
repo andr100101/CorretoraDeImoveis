@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import type { Imovel } from "../interfaces/Imovel";
 
+import { Link } from "react-router-dom";
+
 import { FaHouse } from "react-icons/fa6";
 import { ImEnlarge } from "react-icons/im";
 
@@ -12,8 +14,14 @@ export default function CardDestaque({ idImovel }: DestaqueProps) {
   const [imovel, setImovel] = useState<Imovel | null>(null);
 
   useEffect(() => {
-    fetch("imoveis.json")
-      .then((response) => response.json())
+    fetch("/imoveis.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Erro HTTP: ${response.status}`);
+        }
+
+        return response.json();
+      })
       .then((data: Imovel[]) => {
         const encontrado = data.find(
           (item) => item.idImovel === Number(idImovel)
@@ -32,32 +40,56 @@ export default function CardDestaque({ idImovel }: DestaqueProps) {
 
   return (
     <div className="mb-6 flex flex-col cursor-pointer justify-center">
-      <a href={`/imovel/${imovel.idImovel.toString()}`}><img src={`imagens/${imovel.idImovel}/1.jpg`} className="w-75 object-cover aspect-video duration-300 hover:w-77" /></a>
+
+      <Link to={`/imovel/${imovel.idImovel}`}>
+        <img
+          src={`/imagens/${imovel.idImovel}/1.jpg`}
+          className="w-75 object-cover aspect-video duration-300 hover:w-77"
+          alt={`Imóvel ${imovel.idImovel}`}
+        />
+      </Link>
+
       <div className="flex items-center justify-start gap-2 mt-4">
-      <div className="flex items-center gap-2">
-                    <FaHouse className="text-secundaria w-6" />
-                    <p className="text-large text-bold">
-                      {imovel.m2Construido
-                        ? `${imovel.m2Construido} m² construído`
-                        : "Não disponível"}
-                    </p>
-                  </div>
-      
-      <div className="flex items-center gap-2">
-                          <ImEnlarge className="text-secundaria w-6" />
-                          <p className="text-large text-bold">
-                            {imovel.m2Lote
-                              ? `${imovel.m2Lote} m² de lote`
-                              : "Não disponível"}
-                          </p>
-                        </div>
-                      </div>
-        <div className="flex items-center justify-between gap-2 mt-1">
-      <h2 className="text-secundaria text-xl md:text-2xl font-bold">{imovel.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h2>
-      <a href={`/imovel/${imovel.idImovel}`} className="flex justify-center bg-terciaria duration-400 transition-colors hover:bg-secundaria p-2 w-28 h-auto text-white font-bold rounded ml-4 cursor-pointer">
-        Ver detalhes
-      </a>
-    </div>
+
+        <div className="flex items-center gap-2">
+          <FaHouse className="text-secundaria w-6" />
+
+          <p className="text-large text-bold">
+            {imovel.m2Construido
+              ? `${imovel.m2Construido} m² construído`
+              : "Não disponível"}
+          </p>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <ImEnlarge className="text-secundaria w-6" />
+
+          <p className="text-large text-bold">
+            {imovel.m2Lote
+              ? `${imovel.m2Lote} m² de lote`
+              : "Não disponível"}
+          </p>
+        </div>
+
+      </div>
+
+      <div className="flex items-center justify-between gap-2 mt-1">
+
+        <h2 className="text-secundaria text-xl md:text-2xl font-bold">
+          {imovel.valor.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </h2>
+
+        <Link
+          to={`/imovel/${imovel.idImovel}`}
+          className="flex justify-center bg-terciaria duration-400 transition-colors hover:bg-secundaria p-2 w-28 h-auto text-white font-bold rounded ml-4 cursor-pointer"
+        >
+          Ver detalhes
+        </Link>
+
+      </div>
     </div>
   );
 }

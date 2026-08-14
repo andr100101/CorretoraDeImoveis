@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CardDestaque from "../components/CardDestaque";
-import SEO from "../components/SEO"
+import SEO from "../components/SEO";
 import type { Imovel } from "../interfaces/Imovel";
 
 import { TextAnimate } from "../components/magicui/text-animate";
@@ -16,7 +16,13 @@ export default function CatalogoPage() {
 
   useEffect(() => {
     fetch("/imoveis.json")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Erro HTTP ao carregar imoveis.json: ${response.status}`);
+        }
+
+        return response.json();
+      })
       .then((data: Imovel[]) => {
         setImoveis(data.sort(() => Math.random() - 0.5));
       })
@@ -61,7 +67,6 @@ export default function CatalogoPage() {
             Todos os imóveis
           </TextAnimate>
 
-          {/* Barra de pesquisa */}
           <div className="w-full mt-6">
             <input
               type="text"
@@ -72,12 +77,10 @@ export default function CatalogoPage() {
             />
           </div>
 
-          {/* Quantidade encontrada */}
           <p className="text-gray-600 mt-4">
             {imoveisFiltrados.length} imóvel(is) encontrado(s)
           </p>
 
-          {/* Cards */}
           <div className="flex flex-wrap items-center justify-center gap-12 mt-6 pb-10">
 
             {imoveisFiltrados.map((imovel) => (
@@ -89,7 +92,6 @@ export default function CatalogoPage() {
 
           </div>
 
-          {/* Nenhum resultado */}
           {imoveisFiltrados.length === 0 && (
             <div className="w-full text-center py-16">
 
