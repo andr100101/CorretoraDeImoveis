@@ -1,7 +1,7 @@
 import './App.css'
 import 'lenis/dist/lenis.css'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
@@ -85,12 +85,12 @@ function Home() {
           </div>
 
           <div className="m-6 justify-center items-center flex flex-col md:flex-row gap-4">
-            <a
-              href={"/catalogo"}
+            <Link
+              to="/catalogo"
               className="bg-terciaria duration-400 transition-colors hover:bg-secundaria p-4 w-1/3 not-md:w-2/3 text-center h-auto text-white font-bold rounded ml-4 cursor-pointer text-large md:text-2xl mt-6 mb-10"
             >
               Ver todos
-            </a>
+            </Link>
           </div>
 
           <TextAnimate
