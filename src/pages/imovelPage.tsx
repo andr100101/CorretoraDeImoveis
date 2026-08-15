@@ -80,7 +80,7 @@ export default function ImovelPage() {
   )}.`}
  />
       <main className="bg-fundo2 w-full">
-          <div className="bg-white min-h-screen flex flex-col items-center md:w-2/3 mx-auto md:pl-4 md:pr-4">
+          <div className="bg-white min-h-screen flex flex-col items-center md:w-2/3 mx-auto">
                 <Navbar />
                   <h2 className="w-full p-3 md:p-6 text-black text-2xl md:text-4xl text-left">Imagens do Imóvel : </h2>
                 <CarrosselImovel idImovel={imovel.idImovel} />

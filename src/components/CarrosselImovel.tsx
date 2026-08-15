@@ -12,6 +12,24 @@ export default function CarouselImovel({
 }: CarouselImovelProps) {
   const [imagens, setImagens] = useState<string[]>([]);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const handleChange = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    handleChange();
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
   useEffect(() => {
   const encontrarImagens = async () => {
     const encontradas: string[] = [];
@@ -48,7 +66,7 @@ export default function CarouselImovel({
   return (
     <WaCarousel
       pagination
-      navigation
+      navigation={!isMobile}
       mouseDragging
       loop
     >
