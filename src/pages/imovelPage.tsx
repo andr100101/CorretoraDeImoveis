@@ -125,7 +125,7 @@ export default function ImovelPage() {
                             >
                               {imovel.valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                     </TextAnimate>
-                    <a href={urlWhatsApp} target="_blank" rel="noopener noreferrer" className="bg-terciaria duration-400 transition-colors hover:bg-secundaria p-4 w-16 h-auto text-white font-bold rounded ml-4 cursor-pointer text-large md:text-xl">Mais informações</a>
+                    <a href={urlWhatsApp} target="_blank" rel="noopener noreferrer" className="bg-terciaria duration-400 transition-colors hover:bg-secundaria p-4 w-16 h-auto text-white font-bold rounded ml-4 cursor-pointer text-large md:text-xl min-w-40 md:min-w-50">Mais informações</a>
                     </div>
                     <div className="px-4 md:px-6">
                         <h2 className="text-secundaria text-2xl md:text-4xl mt-4 font-bold">Descrição:</h2>
