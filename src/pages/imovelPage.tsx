@@ -117,7 +117,7 @@ export default function ImovelPage() {
                   <PiToilet className="text-secundaria w-10 mr-4"/> <p className="text-medium md:text-large text-bold pr-2">{imovel.qtdBanheiros} banheiro(s)</p>
                   </div>
                 </div>
-                <div className="px-4 md:px-6">
+                <div className="flex flex-wrap px-4 md:px-6">
                     <TextAnimate
                               animation="slideLeft"
                               by="word"
